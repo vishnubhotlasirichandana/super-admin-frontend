@@ -78,6 +78,7 @@ const ChatInterface = () => {
                     }
                     .chat-main {
                         height: 55vh !important;
+                        flex: 1;
                     }
                 }
             `}</style>
