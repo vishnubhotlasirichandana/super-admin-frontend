@@ -24,7 +24,7 @@ const StatusBadge = ({ status }) => {
 };
 
 /* ──────────────────────────────────────── */
-/*  MAIN COMPONENT                         */
+/* MAIN COMPONENT                         */
 /* ──────────────────────────────────────── */
 const Applications = () => {
     const toast = useToast();
@@ -76,6 +76,12 @@ const Applications = () => {
 
     return (
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="module-page">
+            <style>{`
+                @media (max-width: 640px) {
+                    .action-grid { grid-template-columns: 1fr !important; }
+                    .detail-fields { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
             <div className="module-header">
                 <div>
                     <h1>Application Management</h1>
@@ -160,7 +166,7 @@ const Applications = () => {
 };
 
 /* ──────────────────────────────────────── */
-/*  DETAIL VIEW                            */
+/* DETAIL VIEW                            */
 /* ──────────────────────────────────────── */
 const DetailView = ({ app, type, onBack, toast }) => {
     const [modal, setModal] = useState(null);
@@ -264,7 +270,7 @@ const Field = ({ label, value, icon }) => (
 );
 
 /* ──────────────────────────────────────── */
-/*  ACTION MODALS                          */
+/* ACTION MODALS                          */
 /* ──────────────────────────────────────── */
 const ModalShell = ({ title, onClose, children, danger }) => (
     <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>

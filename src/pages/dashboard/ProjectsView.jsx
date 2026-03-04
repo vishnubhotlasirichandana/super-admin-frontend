@@ -49,6 +49,13 @@ const ProjectsView = () => {
 
     return (
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="module-page">
+            <style>{`
+                @media (max-width: 640px) {
+                    .header-badge { width: 100%; justify-content: center; }
+                    .app-toolbar .filter-input-wrap { width: 100%; min-width: 100%; }
+                }
+            `}</style>
+            
             <div className="module-header">
                 <div>
                     <h1>Global Project Oversight</h1>

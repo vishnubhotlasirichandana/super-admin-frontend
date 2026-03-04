@@ -47,6 +47,17 @@ const AuditLogs = () => {
 
     return (
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="module-page">
+            <style>{`
+                @media (max-width: 768px) {
+                    .audit-filters .filter-input-wrap,
+                    .audit-filters .filter-select-wrap {
+                        width: 100%;
+                        flex: 1 1 100%;
+                    }
+                    .audit-filters input, .audit-filters select { width: 100%; }
+                }
+            `}</style>
+            
             <div className="module-header">
                 <div>
                     <h1>System Audit Logs</h1>

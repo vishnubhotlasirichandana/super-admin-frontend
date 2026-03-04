@@ -12,6 +12,13 @@ const Communications = () => {
 
     return (
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="module-page">
+            <style>{`
+                @media (max-width: 640px) {
+                    .comm-tabs { flex-direction: column; width: 100%; }
+                    .comm-tab { width: 100%; justify-content: center; }
+                }
+            `}</style>
+            
             <div className="module-header">
                 <div>
                     <h1>Communications</h1>
@@ -169,7 +176,7 @@ const NotificationBroadcaster = () => {
     };
 
     return (
-        <div className="broadcast-form-wrap">
+        <div className="broadcast-form-wrap" style={{ width: '100%', maxWidth: '100%' }}>
             <form onSubmit={handleSubmit} className="broadcast-form">
                 <div className="modal-field">
                     <label>Target User ID *</label>

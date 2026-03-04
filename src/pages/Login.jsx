@@ -41,6 +41,12 @@ const Login = () => {
 
     return (
         <div className="login-page">
+            <style>{`
+                @media (max-width: 480px) {
+                    .login-card { padding: 2rem 1.25rem; }
+                    .login-header h1 { font-size: 1.5rem; }
+                }
+            `}</style>
             <div className="login-bg-pattern" />
             <motion.div
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}

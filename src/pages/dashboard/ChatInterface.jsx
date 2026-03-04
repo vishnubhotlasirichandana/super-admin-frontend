@@ -64,6 +64,24 @@ const ChatInterface = () => {
 
     return (
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="module-page chat-module">
+            <style>{`
+                @media (max-width: 768px) {
+                    .chat-layout {
+                        height: calc(100vh - 140px) !important;
+                        flex-direction: column;
+                    }
+                    .chat-sidebar {
+                        width: 100% !important;
+                        max-height: 35vh !important;
+                        border-right: none !important;
+                        border-bottom: 1px solid var(--border);
+                    }
+                    .chat-main {
+                        height: 55vh !important;
+                    }
+                }
+            `}</style>
+            
             <Chat client={client} theme="str-chat__theme-light">
                 <div className="chat-layout">
                     <div className="chat-sidebar">

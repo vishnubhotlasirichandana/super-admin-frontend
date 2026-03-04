@@ -38,6 +38,12 @@ const SuperAdminLayout = () => {
 
     return (
         <div className="sa-layout">
+            <style>{`
+                @media (max-width: 768px) {
+                    .sa-main { width: 100%; max-width: 100vw; }
+                }
+            `}</style>
+            
             <motion.aside
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -62,6 +68,9 @@ const SuperAdminLayout = () => {
                             key={item.to}
                             to={item.to}
                             className={({ isActive }) => `sa-nav-link ${isActive ? 'active' : ''}`}
+                            onClick={() => {
+                                if (window.innerWidth <= 768) setSidebarOpen(false);
+                            }}
                         >
                             <item.icon size={20} />
                             {sidebarOpen && <span>{item.label}</span>}
@@ -82,6 +91,16 @@ const SuperAdminLayout = () => {
                     </button>
                 </div>
             </motion.aside>
+
+            {/* Hidden Div intercepting clicks to close the CSS sidebar overlay on Mobile */}
+            <div 
+                className="sa-mobile-overlay-click-catcher" 
+                onClick={() => setSidebarOpen(false)}
+                style={{
+                    display: sidebarOpen ? 'block' : 'none',
+                    position: 'fixed', inset: 0, zIndex: 40, background: 'transparent'
+                }}
+            />
 
             <main className="sa-main">
                 <motion.header
